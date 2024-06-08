@@ -25,12 +25,12 @@ const PostList = () => {
   };
 
   const columns: GridColDef[] = [
-    { field: 'name', headerName: 'Nombre', flex: 2 },
-    { field: 'description', headerName: 'Descripción', flex: 2 },
+    { field: 'name', headerName: 'Nombre', flex: 1 },
+    { field: 'description', headerName: 'Descripción', flex: 3 },
     {
       field: 'action',
       headerName: 'Acción',
-      flex: 2,
+      flex: 1,
       renderCell: (params) => (
         <Button
           variant="contained"

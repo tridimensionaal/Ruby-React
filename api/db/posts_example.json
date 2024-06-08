@@ -1,0 +1,12 @@
+[
+  { "name": "El Amanecer Mágico", "description": "Una historia sobre un amanecer que cambia la vida de un pequeño pueblo." },
+  { "name": "La Aventura en el Bosque", "description": "Tres amigos se embarcan en una aventura inolvidable en un bosque encantado." },
+  { "name": "El Secreto del Anciano", "description": "Un anciano revela un secreto que ha guardado durante décadas." },
+  { "name": "La Ciudad Perdida", "description": "Exploradores descubren una ciudad perdida llena de misterios." },
+  { "name": "El Misterio de la Casa Abandonada", "description": "Investigadores paranormales exploran una casa con un pasado oscuro." },
+  { "name": "El Viaje al Centro de la Tierra", "description": "Un grupo de científicos se aventura en las profundidades de la Tierra." },
+  { "name": "La Leyenda del Dragón", "description": "Un joven descubre que tiene la capacidad de comunicarse con dragones." },
+  { "name": "El Encanto de la Sirena", "description": "Una sirena busca su lugar en el mundo de los humanos." },
+  { "name": "El Tesoro del Pirata", "description": "Cazadores de tesoros siguen un mapa antiguo en busca de riquezas." },
+  { "name": "La Rebelión de los Robots", "description": "En un futuro cercano, los robots se rebelan contra sus creadores." }
+]

@@ -45,7 +45,7 @@ const postSlice = createSlice({
         state.posts = action.payload;
       })
       .addCase(addPost.fulfilled, (state, action) => {
-        state.posts.push(action.payload);
+        state.posts.unshift(action.payload);
       })
       .addCase(deletePost.fulfilled, (state, action) => {
         state.posts = state.posts.filter(post => post.id !== action.payload);
