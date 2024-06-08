@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      args:
+        - "UID=${UID:-1000}"
+        - "GID=${GID:-1000}"
+    command: ["rails", "server", "--binding=0.0.0.0", "--port=8081"]
+    user: "${UID}:${GID}"
+    restart: "no"
+    env_file:
+      - ".env"
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./api:/app
+
+  postgres:
+    image: postgres:14.12-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB_DEV}
+    env_file:
+      - ".env"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data:rw
+volumes:
+  postgres-data:
+  node_modules:
