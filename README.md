@@ -27,3 +27,10 @@ To get the project up and running, follow these steps:
 ## Accessing the Application
 
 Once the containers are up and running, you can access the frontend at [http://localhost:3000](http://localhost:3000).
+
+## Populating the Database with Example Data
+
+To populate the database with example data, you can run the following command:
+
+```bash
+docker-compose exec api rails db:seed
