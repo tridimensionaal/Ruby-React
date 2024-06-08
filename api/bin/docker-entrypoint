@@ -1,14 +1,29 @@
 #!/bin/sh
 set -e
 
-# https://bundler.io/guides/bundler_docker_guide.html
+# Unset Bundler variables
 unset BUNDLE_PATH
 unset BUNDLE_BIN
 
+# Remove the server.pid if it exists
 if [ -f tmp/pids/server.pid ]; then
-  echo "Cleanup service.pid"
+  echo "Cleaning up tmp/pids/server.pid"
   rm tmp/pids/server.pid
 fi
+
+# Install the required gems
 bundle install
 
+# Check if the database exists. If not, create it.
+if bundle exec rake db:exists 2>/dev/null; then
+  echo "Database exists. Running migrations..."
+  bundle exec rails db:migrate
+else
+  echo "Database does not exist. Creating and migrating..."
+  bundle exec rails db:create
+  bundle exec rails db:migrate
+fi
+
+# Execute the container's main process
 exec bundle exec "$@"
+
